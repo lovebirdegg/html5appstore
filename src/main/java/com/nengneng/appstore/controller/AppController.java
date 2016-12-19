@@ -1,5 +1,7 @@
 package com.nengneng.appstore.controller;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,16 @@ public class AppController {
 	public App getAppInfo() {
 		App app = appService.getAppInfo();
 		return app;
+	}
+
+	@RequestMapping("/getAppInfoHTML")
+
+	public String getAppInfoHTML(Map<String, Object> map) {
+		App app = appService.getAppInfo();
+		map.put("app", app);
+
+		return "/apps";
+
 	}
 
 }
