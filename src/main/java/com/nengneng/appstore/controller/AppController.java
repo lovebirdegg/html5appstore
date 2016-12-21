@@ -1,5 +1,6 @@
 package com.nengneng.appstore.controller;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -33,14 +34,26 @@ public class AppController {
 		return app;
 	}
 
-	@RequestMapping("/getAppInfoHTML")
+	@RequestMapping("/findAllApp")
+	@ResponseBody
+	public ArrayList<App> findAllApp() {
+		ArrayList<App> apps = appService.getAllApp();
+		return apps;
+	}
 
+	@RequestMapping("/getAppInfoHTML")
 	public String getAppInfoHTML(Map<String, Object> map) {
 		App app = appService.getAppInfo();
 		map.put("app", app);
-
 		return "/apps";
 
+	}
+
+	@RequestMapping("/getAllAppHTML")
+	public String getAllAppHTML(Map<String, Object> map) {
+		ArrayList<App> apps = appService.getAllApp();
+		map.put("list", apps);
+		return "/apps";
 	}
 
 }

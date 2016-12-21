@@ -1,5 +1,7 @@
 package com.nengneng.appstore.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,10 @@ public class AppService {
 
 		App app = appMapper.findAppInfo();
 		return app;
+	}
+	
+	public ArrayList<App> getAllApp(){
+		ArrayList<App> apps = appMapper.findAllApp();
+		return apps;
 	}
 }

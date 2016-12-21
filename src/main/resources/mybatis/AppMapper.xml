@@ -5,5 +5,7 @@
   <select id="findAppInfo" resultType="com.nengneng.appstore.model.App">
     select id, name,description,icon,zipfile,version from t_app where id=1;
   </select>
- 
+   <select id="findAllApp" resultType="com.nengneng.appstore.model.App">
+    select id, name,description,icon,zipfile,version from t_app;
+  </select>
 </mapper>
